@@ -61,25 +61,20 @@ if __name__ == "__main__":
         model_student = model_dict[cfg.DISTILLER.TEACHER_NAME](pretrained=False, 
                                                                last_stride=cfg.DISTILLER.STUDENT_LAST_STRIDE, num_classes=num_classes)
         
-        # 查找 output_dir 中的所有 .pth 文件
         pth_files = glob(os.path.join(output_dir, "*.pth"))
      
         pth_files.sort(key=os.path.getmtime, reverse=True)
         latest_model_path = pth_files[0]
         print(f"Loading model weights from: {latest_model_path}")
 
-        # 加载模型权重
+       
         state_dict = torch.load(latest_model_path, map_location='cpu' ,weights_only=True)
         for k, v in state_dict.items():
             if 'teacher' in k:
                 model_student.state_dict()[k.replace('teacher.', "")].copy_(v)
 
-        # # 过滤掉包含 "teacher" 的参数
-        # filtered_state_dict = {k: v for k, v in state_dict.items() if 'student' not in k}
-        
         distiller = distiller_dict[cfg.DISTILLER.TYPE](model_student, cfg)
-        # # 加载过滤后的权重到模型
-        # distiller.load_state_dict(filtered_state_dict)
+      
 
     else:
         model_teacher = model_dict[cfg.DISTILLER.TEACHER_NAME](pretrained=False, last_stride=cfg.DISTILLER.TEACHER_LAST_STRIDE, num_classes=num_classes)
