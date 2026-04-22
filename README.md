@@ -55,11 +55,11 @@ sudo pip3 install -r requirements.txt
 `sys.path.append(os.path.abspath("XXXXX/ACD"))`  
 Replace `"XXXXX/ACD"` with the absolute path of your project to ensure correct module imports.
 
- **Example** (assuming the project path is `/home/user/AIR_Distiller`):  
+ **Example** (assuming the project path is `/home/user/ACD`):  
 ```python
 import sys  
 import os  
-sys.path.append(os.path.abspath("/home/user/AIR_Distiller"))
+sys.path.append(os.path.abspath("/home/user/ACD"))
 ```
 - Please set the `ROOT_DIR` path in the configuration file, i.e., XXX.yaml to the absolute path of the `data` folder.  
   
