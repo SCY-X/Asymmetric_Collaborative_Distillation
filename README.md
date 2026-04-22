@@ -108,4 +108,4 @@ rm -rf build
 5. Testing with the exported student-only checkpoint
 
 - We also provide exported student-only checkpoints for evaluation only.
-- The checkpoints are available at https://pan.baidu.com/s/1g3Y0xbLaZL7TpFyvQAz3Ag?pwd=w8mb or https://drive.google.com/drive/folders/1JwLp
+- The checkpoints are available at https://pan.baidu.com/s/1g3Y0xbLaZL7TpFyvQAz3Ag?pwd=w8mb or https://drive.google.com/drive/folders/1JwLp.
