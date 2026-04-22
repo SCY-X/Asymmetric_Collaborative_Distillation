@@ -41,7 +41,7 @@ sudo pip3 install -r requirements.txt
     &nbsp; &nbsp; &nbsp; &nbsp; └── CUB_200_2011  
     &nbsp; &nbsp; &nbsp; &nbsp; └── InShop  
     &nbsp; &nbsp; &nbsp; &nbsp; └── Stanford_Online_Products  
-    &nbsp; &nbsp; &nbsp; &nbsp; └── MSMT17
+    &nbsp; &nbsp; &nbsp; &nbsp; └── MSMT17  
     &nbsp; &nbsp; &nbsp; &nbsp; └── VeRi776
 
 1. download teacher models
