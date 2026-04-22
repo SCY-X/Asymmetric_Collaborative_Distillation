@@ -45,7 +45,7 @@ sudo pip3 install -r requirements.txt
     &nbsp; &nbsp; &nbsp; &nbsp; └── VeRi776
 
 1. download teacher models
-- Our teacher models are at https://pan.baidu.com/s/1X8urI8_bDfmdapSaNGYbtA?pwd=if2i or https://drive.google.com/drive/folders/1-S6r2nrcn6fQzBrnnEtLbivs4sZ028ZE?usp=drive_link, please download the checkpoints to `./download_teacher_ckpts`
+- Our teacher models are at https://pan.baidu.com/s/1-LrkEMfUR49iZ-KK-ojR2g?pwd=hmqn or https://drive.google.com/drive/folders/1ThCSwQEcGzON9Ju8GXifIZU2MAomcqBO?usp=sharing, please download the checkpoints to `./download_teacher_ckpts`
 
 2. download student models
 - Our student models are at https://pan.baidu.com/s/1X8urI8_bDfmdapSaNGYbtA?pwd=if2i or https://drive.google.com/drive/folders/1-S6r2nrcn6fQzBrnnEtLbivs4sZ028ZE?usp=drive_link, please download the checkpoints to `./download_student_ckpts`
