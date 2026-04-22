@@ -45,12 +45,15 @@ sudo pip3 install -r requirements.txt
     &nbsp; &nbsp; &nbsp; &nbsp; └── VeRi776
 
 1. download teacher models
-- Our teacher models are at https://pan.baidu.com/s/1X8urI8_bDfmdapSaNGYbtA?pwd=if2i or https://drive.google.com/drive/folders/1-S6r2nrcn6fQzBrnnEtLbivs4sZ028ZE?usp=drive_link, please download the checkpoints to `./download_ckpts`
+- Our teacher models are at https://pan.baidu.com/s/1X8urI8_bDfmdapSaNGYbtA?pwd=if2i or https://drive.google.com/drive/folders/1-S6r2nrcn6fQzBrnnEtLbivs4sZ028ZE?usp=drive_link, please download the checkpoints to `./download_teacher_ckpts`
+
+2. download student models
+- Our student models are at https://pan.baidu.com/s/1X8urI8_bDfmdapSaNGYbtA?pwd=if2i or https://drive.google.com/drive/folders/1-S6r2nrcn6fQzBrnnEtLbivs4sZ028ZE?usp=drive_link, please download the checkpoints to `./download_student_ckpts`
 
 2. Path setting
-- Please modify the following line in `AIR_Distiller/tools/train.py` and `AIR_Distiller/tools/test.py`:  
-`sys.path.append(os.path.abspath("XXXXX/AIR_Distiller"))`  
-Replace `"XXXXX/AIR_Distiller"` with the absolute path of your project to ensure correct module imports.
+- Please modify the following line in `ACD/tools/train.py`, `ACD/tools/test.py` and `ACD/tools/test_ours.py` :  
+`sys.path.append(os.path.abspath("XXXXX/ACD"))`  
+Replace `"XXXXX/ACD"` with the absolute path of your project to ensure correct module imports.
 
  **Example** (assuming the project path is `/home/user/AIR_Distiller`):  
 ```python
