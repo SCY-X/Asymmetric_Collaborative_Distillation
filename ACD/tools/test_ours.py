@@ -5,7 +5,7 @@ from glob import glob
 import torch
 
 import sys
-sys.path.append(os.path.abspath("/root/autodl-tmp/ACD"))
+sys.path.append(os.path.abspath("XXXXX/ACD"))
 
 from config import cfg
 from utils.logger import setup_logger
