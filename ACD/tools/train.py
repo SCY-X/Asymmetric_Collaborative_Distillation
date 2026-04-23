@@ -40,7 +40,7 @@ def main(cfg, student_train_loader, distillation_loader, num_classes, query_load
         
     else:
         model_teacher = model_dict[cfg.DISTILLER.TEACHER_NAME](pretrained=False, last_stride=cfg.DISTILLER.TEACHER_LAST_STRIDE, num_classes=num_classes)
-        model_teacher.load_state_dict({k.replace('teacher.', ""): v for k, v in torch.load(cfg.DISTILLER.TEACHER_MODEL_PATH, weights_only=True).items()})
+        model_teacher.load_state_dict({k.replace('student.', ""): v for k, v in torch.load(cfg.DISTILLER.TEACHER_MODEL_PATH, weights_only=True).items()})
         
         model_student = model_dict[cfg.DISTILLER.STUDENT_NAME](pretrained=True, last_stride=cfg.DISTILLER.STUDENT_LAST_STRIDE, num_classes=num_classes)
       
