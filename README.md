@@ -95,7 +95,7 @@ rm -rf build
 
  ```bash
   # For example, under the setting where ResNet-101 serves as the gallery network and ResNet-18 serves as the query network, ACD is introduced into the D3 method.
-  python AIR_Distiller/tools/test.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml 
+  python ACD/tools/test.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml 
  ```
 
 4.2 symmetric Image Retrieval Evaluation
@@ -109,6 +109,78 @@ DISTILLER:
 ```bash
 # Example: evaluate the setting where ResNet-101 is used as the gallery network
 # and ResNet-18 is used as the query network.
-python AIR_Distiller/tools/test_ours.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml
+python ACD_Distiller/tools/test_ours.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml
  ```
 
+### Custom Distillation Method
+
+1. create a python file at `ACD/distillers/` and define the distiller
+  
+  ```python
+  from ._base import Distiller
+
+  class MyDistiller(Distiller):
+      def __init__(self, student, teacher, cfg):
+          super(MyDistiller, self).__init__(student, teacher)
+          self.hyper1 = cfg.MyDistiller.hyper1
+          ...
+
+      def forward_train(self, image, kd_student_image, kd_teacher_image, target, kd_target, **kwargs):
+          # return the output logits and a Dict of losses
+          ...
+      # rewrite the get_learnable_parameters function if there are more nn modules for distillation.
+      # rewrite the get_extra_parameters if you want to obtain the extra cost.
+    ...
+  ```
+
+2. regist the distiller in `distiller_dict` at `AIR_Distiller/distillers/__init__.py`
+
+3. regist the corresponding hyper-parameters at `AIR_Distiller/config/defaults.py`
+
+4. create a new config file and test it.
+
+
+
+# Citation
+
+If this repo is helpful for your research, please consider citing the paper:
+
+```BibTeX
+@InProceedings{ACD,
+    author    = {Yi Xie, Huaidong Zhang, Xuandi Luo, Yan Zhou, Shengfeng He},
+    title     = {Asymmetric Collaborative Distillation for Asymmetric Image Retrieval},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Findings},
+    month     = {June},
+    year      = {2026},
+}
+```
+
+```BibTeX
+@InProceedings{Xie_2024_CVPR,
+    author    = {Xie, Yi and Lin, Yihong and Cai, Wenjie and Xu, Xuemiao and Zhang, Huaidong and Du, Yong and He, Shengfeng},
+    title     = {D3still: Decoupled Differential Distillation for Asymmetric Image Retrieval},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {17181-17190}
+}
+```
+
+```BibTeX
+@article{zhang2025unambiguous,
+  title={Unambiguous granularity distillation for asymmetric image retrieval},
+  author={Zhang, Hongrui and Xie, Yi and Zhang, Haoquan and Xu, Cheng and Luo, Xuandi and Chen, Donglei and Xu, Xuemiao and Zhang, Huaidong and Heng, Pheng Ann and He, Shengfeng},
+  journal={Neural Networks},
+  volume={187},
+  pages={107303},
+  year={2025},
+  publisher={Elsevier}
+}
+```
+
+# License
+
+ACD is released under the MIT license. See [LICENSE](LICENSE) for details.
+
+# Acknowledgement
+- Thanks for DKD. We build this library based on the [DKD's codebase](https://github.com/megvii-research/mdistiller).
