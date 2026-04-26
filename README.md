@@ -133,9 +133,9 @@ python ACD_Distiller/tools/test_ours.py --cfg Training_Configs/SOP/ResNet101_256
     ...
   ```
 
-2. regist the distiller in `distiller_dict` at `AIR_Distiller/distillers/__init__.py`
+2. regist the distiller in `distiller_dict` at `ACD/distillers/__init__.py`
 
-3. regist the corresponding hyper-parameters at `AIR_Distiller/config/defaults.py`
+3. regist the corresponding hyper-parameters at `ACD/config/defaults.py`
 
 4. create a new config file and test it.
 
