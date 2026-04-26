@@ -1,7 +1,24 @@
 This repo is the official implementation of the CVPR-2026 Findings paper: [Asymmetric Collaborative Distillation for Asymmetric Image Retrieval]().
 The codebase is built upon [AIR-Distiller](https://github.com/SCY-X/D3still), with the main difference being that the gallery network is learnable, while the query network is kept frozen. The query network is initialized either with the pretrained weights released by AIR-Distiller or with weights trained based on its original framework.
 
-NOTE: On the MSMT17 dataset, we fixed an issue where the downsampling stride in the final stage of ResNet-IBN was not set to 1. Based on the corrected architecture, we retrained the ResNet101-IBN model and updated the corresponding ACD results on MSMT17.
+NOTE: On the MSMT17 dataset, we fixed an issue where the downsampling stride in the final stage of ResNet-IBN was not set to 1. Based on the corrected architecture, we retrained the ResNet101-IBN model and updated the corresponding ACD results on MSMT17. The new results are shown in the table below.
+
+| Method | mAP (%) | R1 (%) |
+|--------|--------:|-------:|
+| FitNet | 38.28 | 56.38 |
+| + Ours | 41.51 (+4.45) | 53.48 (+6.91) |
+| CC | 39.68 | 58.08 |
+| + Ours | 47.39 (+7.12) | 65.34 (+13.40) |
+| CSD | 39.31 | 57.39 |
+| + Ours | 47.25 (+6.75) | 62.96 (+11.33) |
+| RAML | 39.76 | 58.29 |
+| + Ours | 47.21 (+6.57) | 62.70 (+10.73) |
+| ROP | 37.25 | 56.81 |
+| + Ours | 46.71 (+8.81) | 63.47 (+14.02) |
+| D3still | 40.90 | 60.17 |
+| + Ours | 49.79 (+6.47) | 68.03 (+11.05) |
+| UGD | 41.98 | 61.22 |
+| + Ours | 44.69 (+6.24) | 58.77 (+9.99) |
 
 ### Introduction
 
