@@ -45,10 +45,10 @@ sudo pip3 install -r requirements.txt
     &nbsp; &nbsp; &nbsp; &nbsp; └── VeRi776
 
 1. download teacher models
-- Our teacher models are at https://pan.baidu.com/s/1-LrkEMfUR49iZ-KK-ojR2g?pwd=hmqn or https://drive.google.com/drive/folders/1ThCSwQEcGzON9Ju8GXifIZU2MAomcqBO?usp=sharing, please download the checkpoints to `./download_teacher_ckpts`
+- Our teacher models are at https://pan.baidu.com/s/1-LrkEMfUR49iZ-KK-ojR2g?pwd=hmqn or https://drive.google.com/drive/folders/1ThCSwQEcGzON9Ju8GXifIZU2MAomcqBO?usp=sharing, please download the checkpoints to `ACD/download_teacher_ckpts`
 
 2. download student models
-- Our student models are at https://pan.baidu.com/s/1X8urI8_bDfmdapSaNGYbtA?pwd=if2i or https://drive.google.com/drive/folders/1-S6r2nrcn6fQzBrnnEtLbivs4sZ028ZE?usp=drive_link, please download the checkpoints to `./download_student_ckpts`
+- Our student models are at https://pan.baidu.com/s/1RHlkgFOdBnthTNxVgeVGRQ?pwd=sn5v or https://drive.google.com/drive/folders/1kOx5OtUalIcs6JAiVG-jo8Jxns2MySPI?usp=sharing, please download the checkpoints to `ACD/download_student_ckpts`
 
 2. Path setting
 - Please modify the following line in `ACD/tools/train.py`, `ACD/tools/test.py` and `ACD/tools/test_ours.py` :  
@@ -74,12 +74,8 @@ DATASETS:
 3. Training 
 
  ```bash
-  # for instance, when the gallery network is ResNet101 and the query network is ResNet18, our D3 method.
-  python AIR_Distiller/tools/train.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml 
-  ```
- ```bash
-  # for instance, when the gallery network is ResNet101 and the query network is ResNet18, our UGD method.
-  python AIR_Distiller/tools/train.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/UGD.yaml 
+  # For example, under the setting where ResNet-101 serves as the gallery network and ResNet-18 serves as the query network, ACD is introduced into the D3 method.
+  python ACD/tools/train.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml 
   ```
 
   - By default, the ImageNet pre-trained model will be used for training. The model will be automatically downloaded from the internet on the first run.  
@@ -88,24 +84,30 @@ DATASETS:
 
 4. Evaluation
 
- ```bash
-  # for instance, when the gallery network is ResNet101 and the query network is ResNet18, our D3 method.
-  python AIR_Distiller/tools/test.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml 
- ```
-
-```bash
-  # for instance, when the gallery network is ResNet101 and the query network is ResNet18, our UGD method.
-  python AIR_Distiller/tools/test.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/UGD.yaml 
- ```
-
- - During inference, you can first navigate to `AIR_Distiller/utils/rank_cylib` and run the following commands to enable sorting with C language, which helps reduce inference time:  
+ - During inference, you can first navigate to `ACD/utils/rank_cylib` and run the following commands to enable sorting with C language, which helps reduce inference time:  
 
 ```bash
 python3 setup.py build_ext --inplace
 rm -rf build
 ```
 
-5. Testing with the exported student-only checkpoint
+4.1 Asymmetric Image Retrieval Evaluation
 
-- We also provide exported student-only checkpoints for evaluation only.
-- The checkpoints are available at https://pan.baidu.com/s/1g3Y0xbLaZL7TpFyvQAz3Ag?pwd=w8mb or https://drive.google.com/drive/folders/1JwLp.
+ ```bash
+  # For example, under the setting where ResNet-101 serves as the gallery network and ResNet-18 serves as the query network, ACD is introduced into the D3 method.
+  python AIR_Distiller/tools/test.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml 
+ ```
+
+4.2 symmetric Image Retrieval Evaluation
+
+To evaluate the performance of symmetric image retrieval, first set the distiller type in the YAML file as:
+ ```bash
+DISTILLER:
+  TYPE: "NONE"
+ ```
+ ```bash
+# Example: evaluate the setting where ResNet-101 is used as the gallery network
+# and ResNet-18 is used as the query network.
+python AIR_Distiller/tools/test_ours.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml
+ ```
+
