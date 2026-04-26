@@ -43,12 +43,11 @@ def main(cfg, student_train_loader, distillation_loader, num_classes, query_load
         model_teacher.load_state_dict({k.replace('student.', ""): v for k, v in torch.load(cfg.DISTILLER.TEACHER_MODEL_PATH, weights_only=True).items()})
         
         model_student = model_dict[cfg.DISTILLER.STUDENT_NAME](pretrained=True, last_stride=cfg.DISTILLER.STUDENT_LAST_STRIDE, num_classes=num_classes)
-      
-
-        model_student.load_state_dict({k.replace('student.', ""): v for k, v in torch.load(cfg.DISTILLER.STUDENT_PRETRAIN_PATH, weights_only=True).items()})
         
         distiller = distiller_dict[cfg.DISTILLER.TYPE](
                 model_student, model_teacher, cfg)
+
+        distiller.load_state_dict(torch.load(cfg.DISTILLER.STUDENT_PRETRAIN_PATH, weights_only=True), strict=False)
      
 
     if torch.cuda.device_count() > 1:
