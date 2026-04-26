@@ -101,11 +101,12 @@ rm -rf build
 4.2 symmetric Image Retrieval Evaluation
 
 To evaluate the performance of symmetric image retrieval, first set the distiller type in the YAML file as:
- ```bash
+```yaml
 DISTILLER:
   TYPE: "NONE"
- ```
- ```bash
+```
+
+```bash
 # Example: evaluate the setting where ResNet-101 is used as the gallery network
 # and ResNet-18 is used as the query network.
 python AIR_Distiller/tools/test_ours.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml
