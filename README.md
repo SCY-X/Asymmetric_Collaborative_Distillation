@@ -1,6 +1,7 @@
 This repo is the official implementation of the CVPR-2026 Findings paper: [Asymmetric Collaborative Distillation for Asymmetric Image Retrieval]().
 The codebase is built upon [AIR-Distiller](https://github.com/SCY-X/D3still), with the main difference being that the gallery network is learnable, while the query network is kept frozen. The query network is initialized either with the pretrained weights released by AIR-Distiller or with weights trained based on its original framework.
 
+NOTE: On the MSMT17 dataset, we fixed an issue where the downsampling stride in the final stage of ResNet-IBN was not set to 1. Based on the corrected architecture, we retrained the ResNet101-IBN model and updated the corresponding ACD results on MSMT17.
 
 ### Introduction
 
