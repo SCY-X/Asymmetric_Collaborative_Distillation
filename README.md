@@ -51,7 +51,7 @@ sudo pip3 install -r requirements.txt
 
 ### Getting started
 
-0. download data
+#### 0. download data
 - The dataset has been prepared in the format we read at the link: https://pan.baidu.com/s/1-Ig5F4fMeABCergfTittYA?pwd=3c4c or https://drive.google.com/drive/folders/1CMXqNT3C25_Zy2gyKbC2NJipn90yc2pB?usp=sharing. Please download the data and untar it to `XXXX/data` via `unzip XXXX`. For example,  `unzip CUB_200_2011.zip`. Finally, the data file directory should be as follows:
 
 
