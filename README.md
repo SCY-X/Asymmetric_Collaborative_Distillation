@@ -62,13 +62,13 @@ sudo pip3 install -r requirements.txt
     &nbsp; &nbsp; &nbsp; &nbsp; └── MSMT17  
     &nbsp; &nbsp; &nbsp; &nbsp; └── VeRi776
 
-1. download teacher models
+#### 1. download teacher models
 - Our teacher models are at https://pan.baidu.com/s/1-LrkEMfUR49iZ-KK-ojR2g?pwd=hmqn or https://drive.google.com/drive/folders/1ThCSwQEcGzON9Ju8GXifIZU2MAomcqBO?usp=sharing, please download the checkpoints to `ACD/download_teacher_ckpts`
 
-2. download student models
+#### 2. download student models
 - Our student models are at https://pan.baidu.com/s/1RHlkgFOdBnthTNxVgeVGRQ?pwd=sn5v or https://drive.google.com/drive/folders/1kOx5OtUalIcs6JAiVG-jo8Jxns2MySPI?usp=sharing, please download the checkpoints to `ACD/download_student_ckpts`
 
-2. Path setting
+#### 3. Path setting
 - Please modify the following line in `ACD/tools/train.py`, `ACD/tools/test.py` and `ACD/tools/test_ours.py` :  
 `sys.path.append(os.path.abspath("XXXXX/ACD"))`  
 Replace `"XXXXX/ACD"` with the absolute path of your project to ensure correct module imports.
@@ -89,7 +89,7 @@ DATASETS:
 ```
 
 
-3. Training 
+#### 4. Training 
 
  ```bash
   # For example, under the setting where ResNet-101 serves as the gallery network and ResNet-18 serves as the query network, ACD is introduced into the D3 method.
@@ -100,7 +100,7 @@ DATASETS:
   If you want to use a different pre-trained model, modify the `STUDENT_PRETRAIN_PATH` in the YAML configuration file.  
 
 
-4. Evaluation
+#### 5. Evaluation
 
  - During inference, you can first navigate to `ACD/utils/rank_cylib` and run the following commands to enable sorting with C language, which helps reduce inference time:  
 
@@ -109,14 +109,14 @@ python3 setup.py build_ext --inplace
 rm -rf build
 ```
 
-  4.1 Asymmetric Image Retrieval Evaluation
+ ##### 5.1 Asymmetric Image Retrieval Evaluation
 
  ```bash
   # For example, under the setting where ResNet-101 serves as the gallery network and ResNet-18 serves as the query network, ACD is introduced into the D3 method.
   python ACD/tools/test.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml 
  ```
 
-  4.2 symmetric Image Retrieval Evaluation
+  ##### 5.2 symmetric Image Retrieval Evaluation
 
 To evaluate the performance of symmetric image retrieval, first set the distiller type in the YAML file as:
 ```yaml
