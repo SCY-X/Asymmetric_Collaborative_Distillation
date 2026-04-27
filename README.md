@@ -4,21 +4,21 @@ The codebase is built upon [AIR-Distiller](https://github.com/SCY-X/D3still), wi
 NOTE: On the MSMT17 dataset, we fixed an issue where the downsampling stride in the final stage of ResNet-IBN was not set to 1. Based on the corrected architecture, we retrained the ResNet101-IBN model and updated the corresponding ACD results on MSMT17. The new results are shown in the table below.
 
 | Method | mAP (%) | R1 (%) |
-|--------|--------:|-------:|
+|:------:|:-------:|:------:|
 | FitNet | 38.28 | 56.38 |
-| + ACD | 40.63 (+4.45) | 59.20 (+6.91) |
+| + ACD | 40.63 (+2.35) | 59.20 (+2.82) |
 | CC | 39.68 | 58.08 |
-| + ACD | 47.39 (+7.12) | 65.34 (+13.40) |
+| + ACD | 47.39 (+7.71) | 65.34 (+7.26) |
 | CSD | 39.31 | 57.39 |
-| + ACD | 40.72 (+6.75) | 58.98 (+11.33) |
+| + ACD | 40.72 (+1.41) | 58.98 (+1.59) |
 | RAML | 39.76 | 58.29 |
-| + ACD | 47.21 (+6.57) | 62.70 (+10.73) |
+| + ACD | 41.20 (+1.44) | 59.77 (+1.48) |
 | ROP | 37.25 | 56.81 |
-| + ACD | 46.71 (+8.81) | 63.47 (+14.02) |
+| + ACD | 39.10 (+1.85) | 58.26 (+1.45) |
 | D3still | 40.90 | 60.17 |
-| + ACD | 49.79 (+6.47) | 68.03 (+11.05) |
+| + ACD | 49.79 (+8.89) | 68.03 (+7.86) |
 | UGD | 41.98 | 61.22 |
-| + ACD | 44.69 (+6.24) | 58.77 (+9.99) |
+| + ACD | 41.99 (+0.01) | 61.63 (+0.41) |
 
 ### Introduction
 
