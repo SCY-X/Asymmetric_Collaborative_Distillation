@@ -109,14 +109,14 @@ python3 setup.py build_ext --inplace
 rm -rf build
 ```
 
-4.1 Asymmetric Image Retrieval Evaluation
+  4.1 Asymmetric Image Retrieval Evaluation
 
  ```bash
   # For example, under the setting where ResNet-101 serves as the gallery network and ResNet-18 serves as the query network, ACD is introduced into the D3 method.
   python ACD/tools/test.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml 
  ```
 
-4.2 symmetric Image Retrieval Evaluation
+  4.2 symmetric Image Retrieval Evaluation
 
 To evaluate the performance of symmetric image retrieval, first set the distiller type in the YAML file as:
 ```yaml
