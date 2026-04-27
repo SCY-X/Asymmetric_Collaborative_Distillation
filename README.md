@@ -127,7 +127,7 @@ DISTILLER:
 ```bash
 # Example: evaluate the setting where ResNet-101 is used as the gallery network
 # and ResNet-18 is used as the query network.
-python ACD_Distiller/tools/test_ours.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml
+python ACD/tools/test_ours.py --cfg Training_Configs/SOP/ResNet101_256x256_ResNet18_64x64/D3.yaml
  ```
 
 ### Custom Distillation Method
