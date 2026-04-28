@@ -8,7 +8,7 @@ NOTE: On the MSMT17 dataset, we fixed an issue where the downsampling stride in 
 | FitNet | 38.28 | 56.38 |
 | FitNet + ACD | 40.63 (+2.35) | 59.20 (+2.82) |
 | CC | 39.68 | 58.08 |
-| CC + ACD | 47.39 (+7.71) | 65.34 (+7.26) |
+| CC + ACD | 40.63 (+0.95) | 59.20 (+1.12) |
 | CSD | 39.31 | 57.39 |
 | CSD + ACD | 40.72 (+1.41) | 58.98 (+1.59) |
 | RAML | 39.76 | 58.29 |
@@ -16,7 +16,7 @@ NOTE: On the MSMT17 dataset, we fixed an issue where the downsampling stride in 
 | ROP | 37.25 | 56.81 |
 | ROP + ACD | 39.10 (+1.85) | 58.26 (+1.45) |
 | D3still | 40.90 | 60.17 |
-| D3still + ACD | 49.79 (+8.89) | 68.03 (+7.86) |
+| D3still + ACD | 42.43 (+1.53) | 61.85 (+1.68) |
 | UGD | 41.98 | 61.22 |
 | UGD + ACD | 41.99 (+0.01) | 61.63 (+0.41) |
 
